@@ -10,7 +10,7 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length = 300)
     content = models.TextField()
-    image = models.ImageField(upload_to="blogs")
+    image = models.ImageField(upload_to="blogs", default='default.jpg')
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     content_view = models.IntegerField(default=0)
