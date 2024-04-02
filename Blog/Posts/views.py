@@ -6,5 +6,6 @@ def blog_home(request):
     return render(request, 'blog/blog-home.html',{'posts':posts})
     
     
-def single(request):
-    return render(request, 'blog/blog-single.html')
+def single(request,page):
+    single = Post.objects.filter(status=1).filter(id=page)
+    return render(request, 'blog/blog-single.html',{'single':single})

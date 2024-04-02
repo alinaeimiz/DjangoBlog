@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
-{% load humanize %}
-		
+{% load humanize %}		
 {% load static %}	
 
 {% block content %}
@@ -109,15 +108,15 @@
 							<div class="feature-img">
 								<img class="img-fluid" src="{{post.image.url}}" alt="">
 							</div>
-							<a class="posts-title" href="{% url 'post:single' %}"><h3>{{post.title}}</h3></a>
+							<a class="posts-title" href="{% url 'post:single' post.id %}"><h3>{{post.title}}</h3></a>
 							<p class="excert">
 								{{post.content}}
 							</p>
-							<a href="{% url 'post:single' %}" class="primary-btn">View More</a>
+							<a href="{% url 'post:single' post.id %}" class="primary-btn">View More</a>
 						</div>
 					</div>	
 					{% endfor %}												
-					<nav class="blog-pagination justify-content-center d-flex">
+					<nav class="blog-pagination justify- content-center d-flex">
 						<ul class="pagination">
 							<li class="page-item">
 								<a href="#" class="page-link" aria-label="Previous">
