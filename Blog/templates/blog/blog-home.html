@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load humanize %}		
 {% load static %}	
-
+{% load wiget %}
 {% block content %}
 
 			<!-- start banner Area -->
@@ -142,17 +142,17 @@
 				</div>
 				<div class="col-lg-4 sidebar-widgets">
 					<div class="widget-wrap">
-					{% include 'widget/searchbar.html' %}
+					{% include 'wiget/searchbar.html' %}
 					
-					{% include 'widget/auther.html' %}	
+					{% include 'wiget/auther.html' %}	
 					
-					{% include 'widget/popular-post.html' %}		
+					{% popular_post %}		
 					
-					{% include 'widget/post-category.html' %}	
+					{% post_category %}	
 					
-					{% include 'widget/news-letter.html' %}
+					{% include 'wiget/news-letter.html' %}
 
-					{% include 'widget/cloud.html' %}	
+					{% cloud %}	
 													
 					</div>
 				</div>

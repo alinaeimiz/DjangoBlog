@@ -1,6 +1,11 @@
 {% load static %}
 {% load humanize %}
-
+<style>
+    .widget-wrap .popular-post-widget .popular-post-list .thumb img {
+    width:100%;
+    max-width: 100px;
+}
+</style>
 <div class="single-sidebar-widget popular-post-widget">
     <h4 class="popular-title">Popular Posts</h4>
     {% for post in posts %}
