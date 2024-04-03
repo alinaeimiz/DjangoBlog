@@ -15,7 +15,7 @@
                 <img class="img-fluid" src="{{post.image.url}}" alt="">
             </div>
             <div class="details">
-                <a href="blog-single.html"><h6>{{post.title}}</h6></a>
+                <a href="{%url 'post:single' post.id %}"><h6>{{post.title}}</h6></a>
                 <p>{{post.published_date|naturaltime}}</p>
             </div>
         </div>														

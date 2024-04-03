@@ -4,7 +4,7 @@
     <ul>
         
         {% for cat in category %}
-        <li><a href="#">{{cat.name}}</a></li>
+        <li><a href="{% url 'post:search-category' cat.name %}">{{cat.name}}</a></li>
         {% endfor %}
             
         
