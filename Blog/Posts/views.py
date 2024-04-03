@@ -32,7 +32,8 @@ def newsletter(request):
         form = EmailForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return HttpResponse('great')
+     
         else:
             return redirect('/')
     
