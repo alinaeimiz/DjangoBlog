@@ -9,3 +9,10 @@ def blog_home(request):
 def single(request,page):
     single = Post.objects.filter(status=1).filter(id=page)
     return render(request, 'blog/blog-single.html',{'single':single})
+
+def search(request):
+    posts = Post.objects.filter(status = 1)
+    if request.method == 'GET':
+        if q := request.GET.get('q'):
+            posts = posts.filter(content__contains = q)      
+    return render(request,'blog/blog-home.html', {'posts':posts})

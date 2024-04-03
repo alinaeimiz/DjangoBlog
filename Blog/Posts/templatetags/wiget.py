@@ -21,3 +21,7 @@ def post_category():
 def cloud():
     category = Category.objects.all() 
     return {'category':category}
+
+
+
+    
