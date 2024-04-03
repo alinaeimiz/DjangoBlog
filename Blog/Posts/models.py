@@ -24,3 +24,12 @@ class Post(models.Model):
     
     class Meta:
         ordering = ["published_date"]
+
+
+class Newsletter(models.Model):
+    email = models.EmailField(unique=True)
+    news_status = models.BooleanField(default=True)
+    
+    
+    def __str__(self) -> str:
+        return self.email
