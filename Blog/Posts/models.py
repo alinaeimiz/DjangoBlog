@@ -23,7 +23,7 @@ class Post(models.Model):
         return self.title
     
     class Meta:
-        ordering = ["published_date"]
+        ordering = ["-published_date"]
 
 
 class Newsletter(models.Model):
@@ -33,3 +33,15 @@ class Newsletter(models.Model):
     
     def __str__(self) -> str:
         return self.email
+    
+    
+class Contact(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    
+    def __str__(self) -> str:
+        return self.subject

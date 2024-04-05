@@ -15,6 +15,7 @@ def post_category():
     counts={}
     for name in category:
          counts[name] = posts.filter(category=name).count()
+    
     return {"counts":counts}
 
 @register.inclusion_tag("wiget/cloud.html")

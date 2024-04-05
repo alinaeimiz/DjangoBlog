@@ -8,14 +8,18 @@
     <div class="form-group d-flex flex-row">
        <div class="col-autos">
           <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i>
-            </div>
-            </div>
-            <input type="text" name="email" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" >
+            <form action="{url 'post:newsletter'}" method="post" >
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i>
+              </div>
+              </div>
+            
+            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" >
           </div>
         </div>
-        <a href="{% url 'post:newsletter' %}" class="bbtns">Subcribe</a>
+        
+        <a href="" class="bbtns"></a>
+      </form>
     </div>	
     <p class="text-bottom">
         You can unsubscribe at any time

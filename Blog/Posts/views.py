@@ -1,11 +1,19 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .models import Post
-from Posts.forms import EmailForm
-
+from Posts.forms import EmailForm,ContactForm
+from django.core.paginator import Paginator ,EmptyPage, PageNotAnInteger
 # Create your views here.
 
 def blog_home(request):
     posts = Post.objects.filter(status=1)
+    paginator = Paginator(posts, 3)
+    try:
+        page_number = request.GET.get("page")
+        posts = paginator.get_page(page_number)
+    except EmptyPage:
+        posts = paginator.get_page(1)
+    except PageNotAnInteger:
+        posts = paginator.get_page(1)
     return render(request, 'blog/blog-home.html',{'posts':posts})
     
     
@@ -32,10 +40,18 @@ def newsletter(request):
         form = EmailForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('great')
-     
+            return redirect('/')
         else:
             return redirect('/')
-    
-            
+def contact(request):
+    return render(request, 'blog/contact.html')
+
+def contact_form(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+        else:
+            return redirect('/')        
             
